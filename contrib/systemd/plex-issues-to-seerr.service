@@ -1,0 +1,14 @@
+[Unit]
+Description=Mirror Plex issue reports into Seerr, one poll
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+DynamicUser=yes
+StateDirectory=plex-issues-to-seerr
+Environment=STATE_FILE=%S/plex-issues-to-seerr/state.json
+EnvironmentFile=/etc/plex-issues-to-seerr.env
+# The timer starts each poll. A POLL_INTERVAL from the env file would turn this oneshot into a loop.
+UnsetEnvironment=POLL_INTERVAL
+ExecStart=/usr/bin/python3 /opt/plex-issues-to-seerr/plex_issues.py

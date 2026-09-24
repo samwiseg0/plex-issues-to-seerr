@@ -1,0 +1,11 @@
+services:
+  plex-issues-to-seerr:
+    image: ghcr.io/samwiseg0/plex-issues-to-seerr:latest
+    init: true
+    env_file: .env
+    volumes:
+      - data:/data
+    restart: unless-stopped
+
+volumes:
+  data:

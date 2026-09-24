@@ -1,0 +1,8 @@
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.env
+# The state file, its .tmp and .lock siblings, and the heartbeat.
+plex_issues_state.json*
+state.json*
+heartbeat
