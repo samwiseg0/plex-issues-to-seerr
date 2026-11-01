@@ -1,4 +1,4 @@
-FROM python:3.14-alpine3.24
+FROM python:3.15-alpine3.24
 
 # /data belongs to the runtime UID, so a new named volume starts out writable.
 RUN mkdir /data && chown 10001:10001 /data
